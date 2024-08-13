@@ -1,8 +1,12 @@
 import { arrowRight } from "../assets/icons";
+import { bigShoe1 } from "../assets/images";
 import Button from "../components/Button";
-import { statistics } from "../constants";
+import { shoes, statistics } from "../constants";
+import ShoeCard from "../components/ShoeCard";
+import { useState } from "react";
 
 const Hero = () => {
+	const [bigShoeImg, setBigShoeImg] = useState();
 	return (
 		<section
 			id="home" // Unique identifier for this section, useful for navigation and linking
@@ -52,6 +56,49 @@ const Hero = () => {
 							<p className="leading-7 font-montserrat text-slate-gray">
 								{stat.label}
 							</p>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div
+				// Container for the shoe image section
+				className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center"
+			>
+				{/* Display the currently selected big shoe image */}
+				<img
+					src={bigShoeImg} // Source of the shoe image to display
+					alt="Shoe Collection" // Alt text for accessibility
+					width={610} // Set image width
+					height={500} // Set image height
+					className="object-contain relative z-10"
+					// 'object-contain' scales the image to fit its container while maintaining aspect ratio
+					// 'relative' positions the image relative to its normal position
+					// 'z-10' sets the z-index to 10, ensuring the image appears above other elements
+				/>
+
+				{/* Container for the shoe cards, positioned absolutely to overlap the image */}
+				<div
+					className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6"
+					// Container for the shoe cards
+					// 'flex' makes the container a flexbox
+					// 'sm:gap-6' sets the gap between items on small screens and larger
+					// 'gap-4' sets the gap between items on screens smaller than small
+					// 'absolute' positions the container absolutely within its nearest positioned ancestor
+					// '-bottom-[5%]' positions the container 5% from the bottom of its containing element
+					// 'sm:left-[10%]' positions the container 10% from the left on small screens and larger
+					// 'max-sm:px-6' adds padding on the x-axis on screens smaller than small
+				>
+					{/* Map through the shoes array to create a ShoeCard for each shoe */}
+					{shoes.map((shoe) => (
+						<div key={shoe}>
+							<ShoeCard
+								imgURL={shoe} // Passes the shoe image URL to the ShoeCard component
+								changeBigShoeImage={(shoe) =>
+									setBigShoeImg(shoe)
+								} // Function to update the big shoe image on click
+								bigShoeImg={bigShoeImg} // Pass the current big shoe image to highlight the selected card
+							/>
 						</div>
 					))}
 				</div>
