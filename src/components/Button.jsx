@@ -15,7 +15,8 @@ const Button = ({
 			backgroundColor // Conditional classes for background color, text color, and border color
 				? `${backgroundColor} ${textColor} ${borderColor}` // Use provided colors if available
 				: "bg-coral-red text-white border-coral-red" // Default styling if no colors are provided
-		} rounded-full ${fullWidth && "w-full"}`} // Add full width class if fullWidth is true
+		} rounded-full ${fullWidth && "w-full"} 
+		hover:bg-white-400 hover:text-coral-red hover:border-coral-dark hover:shadow-lg transition-all duration-300`} // Hover effect and transition
 		>
 			{/* Button label passed as a prop */}
 			{label}
