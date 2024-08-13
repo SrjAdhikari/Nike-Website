@@ -30,7 +30,7 @@ const Hero = () => {
 					{/* Nike text in coral-red color */}
 					<span className="text-coral-red inline-block mt-3">
 						Nike
-					</span>
+					</span>{" "}
 					Shoes
 				</h1>
 
