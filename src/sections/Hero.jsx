@@ -90,9 +90,11 @@ const Hero = () => {
 					// 'max-sm:px-6' adds padding on the x-axis on screens smaller than small
 				>
 					{/* Map through the shoes array to create a ShoeCard for each shoe */}
-					{shoes.map((shoe) => (
-						<div key={shoe}>
+					{shoes.map((shoe, index) => (
+						<div key={index}>
+							{/* Using index as key (less ideal) */}
 							<ShoeCard
+								index={index}
 								imgURL={shoe} // Passes the shoe image URL to the ShoeCard component
 								changeBigShoeImage={(shoe) =>
 									setBigShoeImg(shoe)
