@@ -6,11 +6,14 @@ const Button = ({ label, iconURL }) => {
 			{label}
 
 			{/* Image element for the icon, styled with margin, rounded corners, and fixed size */}
-			<img
-				src={iconURL}
-				alt="arrow-right-icon" // Alt text for accessibility
-				className="ml-2 rounded-full w-5 h-5" // Margin-left for spacing, rounded corners, and size
-			/>
+			{iconURL && (
+				// Conditionally render the image only if `iconURL` is provided
+				<img
+					src={iconURL}
+					alt="arrow-right-icon" // Alt text for accessibility
+					className="ml-2 rounded-full w-5 h-5" // Margin-left for spacing, rounded corners, and size
+				/>
+			)}
 		</button>
 	);
 };
