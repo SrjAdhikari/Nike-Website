@@ -6,7 +6,7 @@ import ShoeCard from "../components/ShoeCard";
 import { useState } from "react";
 
 const Hero = () => {
-	const [bigShoeImg, setBigShoeImg] = useState();
+	const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
 	return (
 		<section
 			id="home" // Unique identifier for this section, useful for navigation and linking
