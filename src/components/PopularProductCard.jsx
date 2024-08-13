@@ -20,7 +20,7 @@ const PopularProductCard = ({ imgURL, name, price }) => {
 
 				{/* Product rating */}
 				<p className="font-montserrat text-xl leading-normal text-slate-gray">
-					(4.5) // Display the rating
+					(4.5)
 				</p>
 			</div>
 
