@@ -1,7 +1,22 @@
-const Button = ({ label, iconURL }) => {
+const Button = ({
+	label,
+	iconURL,
+	backgroundColor,
+	textColor,
+	borderColor,
+	fullWidth,
+}) => {
 	return (
 		// Button element with flexbox for alignment, padding, border, and background color
-		<button className="flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none bg-coral-red rounded-full text-white border-coral-red">
+		<button
+			// Button element with conditional styling
+			className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none
+		${
+			backgroundColor // Conditional classes for background color, text color, and border color
+				? `${backgroundColor} ${textColor} ${borderColor}` // Use provided colors if available
+				: "bg-coral-red text-white border-coral-red" // Default styling if no colors are provided
+		} rounded-full ${fullWidth && "w-full"}`} // Add full width class if fullWidth is true
+		>
 			{/* Button label passed as a prop */}
 			{label}
 
